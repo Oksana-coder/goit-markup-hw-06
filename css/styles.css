@@ -21,6 +21,7 @@
     --border-color: #EEEEEE;
     --secondary-border-color: #ECECEC;
     --icon-default-color: #afb1b8;
+    --hover-button-color: #188CE8;
     --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body{
@@ -282,6 +283,7 @@ img{
     transition: fill 250ms var(--timing-function)
 }
 .form-input{
+    outline: none;
     margin: 0;
     padding: 11px 12px 11px 42px;
     width: 100%;
@@ -333,15 +335,24 @@ textarea{
     text-align: center;
     cursor: pointer;
 }
-.checkbox-icon{
-    display: inline-block;
+.policy-label::before{
+    content: "";
+
+    display: inline-flex;
     width: 16px;
     height: 15px;
+    margin-right: 8px;
 
     border: 2px solid var(--black);
     border-radius: 2px;
+
+    transition: border-color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    background-image 250ms var(--timing-function),
+    background-size 250ms var(--timing-function),
+    background-origin 250ms var(--timing-function)
 }
-.checkbox:checked + .checkbox-icon{
+.checkbox:checked + .policy-label::before{
     border-color: var(--accent);
     background-color: var(--accent);
     background-image: url(../images/Optimized/svg/icon-check1.svg);
@@ -361,6 +372,11 @@ textarea{
     margin-right: auto;
     margin-left: auto;
     margin-top: 30px;
+
+    transition: background-color 250ms var(--timing-function)
+}
+.submit-button:hover{
+    background-color: var(--hover-button-color);
 }
 .section-title{
     margin-top: 0;
@@ -608,7 +624,7 @@ margin-right: 70px;
     line-height: 1.14;
     text-transform: uppercase;
 }
-.form-footer h2{
+.form-footer p{
     margin: 0;
     font-weight: 700;
     font-size: 14px;
